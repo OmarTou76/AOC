@@ -16,6 +16,7 @@ class Solver {
     instructions;
     currentNode = "AAA";
     count = 0
+
     constructor(data) {
         const [instructions, ...rest] = data
         this.instructions = instructions.split('')
@@ -26,9 +27,7 @@ class Solver {
         data.forEach((line, i) => {
             const [key, values] = line.split(" = ")
             const [L, R] = values.split(/[\(\), ]/g).filter(el => el)
-            this.node[key] = {}
-            this.node[key]['L'] = L
-            this.node[key]['R'] = R
+            this.node[key] = { L, R }
         })
     }
 
